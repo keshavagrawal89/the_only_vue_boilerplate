@@ -1,0 +1,102 @@
+.btn-primary {
+    background: #D63964;
+    color: white;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #D63964;
+    --bs-btn-border-color: #D63964;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #bf244d;
+    --bs-btn-hover-border-color: #bf244d;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #b1123c;
+    --bs-btn-active-border-color: #b1123c;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #D63964;
+    --bs-btn-disabled-border-color: #D63964;    
+  }
+  .nav-link {
+    color: white
+  }
+  .nav-tabs .nav-link {
+    color: black
+  }
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #D63964;
+  }
+
+  .card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-title-color: ;
+    --bs-card-subtitle-color: ;
+    --bs-card-border-width: var(--bs-border-width);
+    --bs-card-border-color: white;
+    --bs-card-border-radius: var(--bs-border-radius);
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: var(--bs-body-bg);
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    color: var(--bs-body-color);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);  
+    box-shadow: -2px 4px 7px 0px rgba(201,192,192,0.75);
+    -webkit-box-shadow: -2px 4px 7px 0px rgba(201,192,192,0.75);
+    -moz-box-shadow: -2px 4px 7px 0px rgba(201,192,192,0.75);
+  }  
+
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    vertical-align: top;
+    border: none
+  }
+
+  tbody, td, tfoot, th, thead, tr {
+    border-style: none;
+  }
+  
+  .app-row {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  body {
+    color: rgb(69, 69, 69);
+  }
+
+  td > mark {
+    font-weight: bold;
+    color: #D63964;
+    background-color: rgb(248, 248, 248);
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .nav-link {
+    cursor: pointer;
+  }
