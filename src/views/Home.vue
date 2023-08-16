@@ -1,73 +1,73 @@
 <template>
   <div class="Home">
-    <h1 style="text-align: center;">Welcome to the Vue JS Boilerplate</h1>
-    <b-row class="app-row">
-      <b-col cols="4" style="align-self: center;">
-        <table>
+    <h1 class="text-center">Welcome to the Vue JS Boilerplate</h1>
+    <div class="row app-row">
+      <div class="col-4 align-self-center">
+        <table class="table">
           <tbody>
             <tr>
-              <td><mark>&#9889; Made with <kbd>VueJS</kbd></mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with <kbd>VueJS</kbd></span></td>
             </tr>
             <tr>
-              <td><mark>&#9889; Made with <kbd>VueRouter</kbd></mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with <kbd>VueRouter</kbd></span></td>
             </tr>
             <tr>
-              <td><mark>&#9889; Made with <kbd>BootstrapVue</kbd></mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with <kbd>Bootstrap</kbd></span></td>
             </tr>
             <tr>
-              <td><mark>&#9889; Made with <kbd>VueX</kbd></mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with <kbd>VueX</kbd></span></td>
             </tr>
             <tr>
-              <td><mark>&#9889; Made with <kbd>Firebase</kbd></mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with <kbd>Firebase</kbd></span></td>
             </tr>
             <tr>
-              <td><mark>&#9889; Made with <kbd>Axios</kbd></mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with <kbd>Axios</kbd></span></td>
             </tr>
             <tr>
-              <td><mark>&#9889; Made with Love</mark></td>
+              <td><span class="badge bg-warning">&#9889; Made with Love</span></td>
             </tr>
           </tbody>
         </table>
-      </b-col>
-      <b-col cols="4">
-        <b-card style="text-align: center;">
-          <img :src="cuteImage" />
-          <b-card-text>
+      </div>
+      <div class="col-4">
+        <div class="card text-center">
+          <img :src="cuteImage" class="card-img-top" alt="Cute Image">
+          <div class="card-body">
             <p class="blockquote-footer">This image was loaded from <b>assets folder</b></p>
             <p><kbd>{{ commonMessage }}</kbd></p>
-          </b-card-text>
-        </b-card>
-      </b-col>
-      <b-col cols="4" style="align-self: center; text-align: right;">
-        <table>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 align-self-center text-end">
+        <table class="table">
           <tbody>
             <tr>
-              <td><mark>&#127881; Supports reading from config</mark></td>
+              <td><span class="badge bg-primary">&#127881; Supports reading from config</span></td>
             </tr>
             <tr>
-              <td><mark>&#127881; Supports reading from environment variables</mark></td>
+              <td><span class="badge bg-primary">&#127881; Supports reading from environment variables</span></td>
             </tr>
             <tr>
-              <td><mark>&#127881; Supports firebase login</mark></td>
+              <td><span class="badge bg-primary">&#127881; Supports firebase login</span></td>
             </tr>
             <tr>
-              <td><mark>&#127881; Supports services and API calls</mark></td>
+              <td><span class="badge bg-primary">&#127881; Supports services and API calls</span></td>
             </tr>
             <tr>
-              <td><mark>&#127881; Supports custom themeing!</mark></td>
+              <td><span class="badge bg-primary">&#127881; Supports custom themeing!</span></td>
             </tr>
           </tbody>
         </table>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
     
     <p class="spacer"></p>
     
-    <b-row>
-      <b-col cols="2"></b-col>
-      <b-col cols="8">
-        <h5 style="text-align: center;">How to run?</h5>
-        <p style="text-align: center;">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <h5 class="text-center">How to run?</h5>
+        <p class="text-center">
           <ul class="list-unstyled">
             <li>
               <kbd>git clone the repo</kbd>
@@ -100,25 +100,25 @@
             </li>
           </ul>        
 
-      </b-col>
-      <b-col cols="2"></b-col>
-    </b-row>
+      </div>
+      <div class="col-2"></div>
+    </div>
   </div>
 </template>
+
 <script>
 
 import cuteImage from "@/assets/images/cute.png"
 import config from "@/config/config"
 
 export default {
-  data() {
+  setup() {
+    const commonMessage = config.commonMessage;
+
     return {
-      commonMessage: config.commonMessage,
+      commonMessage,
       cuteImage: cuteImage,
     }
-  },
-  setup() {
-
-  },
+  }
 }
 </script>

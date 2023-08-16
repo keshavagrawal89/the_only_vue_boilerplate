@@ -1,42 +1,50 @@
 <template>
   <div>
-    <b-form>
-        <b-form-group
-            label="Email">
-            <b-form-input v-model="email"
-                required
-            ></b-form-input>
-        </b-form-group>
-        <b-form-group
-            label="Password">
-            <b-form-input
-            type="password"
-            v-model="password"
-                required
-            ></b-form-input>
-        </b-form-group>      
 
-        <b-button variant="primary" @click="login">Signin</b-button>  
-    </b-form>
+            <label for="email">Email</label>
+            <input v-model="email"
+                class="form-control"
+                id="email"
+                required
+            />
+            <label for="password">Password</label>
+            <input v-model="password"
+                type="password"
+                class="form-control"
+                id="password"
+                required
+            />
+        <button class="btn btn-primary" @click="login">Signin</button>  
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router'
+
 export default {
     name: "LoginVue",
-    data() {
-        return {
-            email: "",
-            password: ""
-        };
-    },
-    methods: {
-        async login() {
-            await this.$store.dispatch("signIn", {
-                email: this.email,
-                password: this.password
+    setup() {
+        const store = useStore();
+        const router = useRouter();
+
+        const email = ref("");
+        const password = ref("");
+
+        const login = async () => {
+            await store.dispatch("signIn", {
+                email: email.value,
+                password: password.value
             });
-            this.$router.push("/dashboard");
+            // router.push("/dashboard");
+            router.push("/test");
+        }
+
+        return {
+            email,
+            password,
+            login
         }
     }
 }

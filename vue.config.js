@@ -10,18 +10,18 @@ module.exports = {
     // }
   },
   configureWebpack: {
+    //   resolve: {
+    //     extensions: [ '.tsx', '.ts', '.js', '.vue' ],
+    //     alias: {
+    //         'vue': '@vue/runtime-dom'
+    //     }
+    // },
     plugins: [
       new webpack.DefinePlugin({
-          'process.env.VUE_APP_TOP_SECRET': JSON.stringify(process.env.VUE_APP_TOP_SECRET),
-          'process.env.VUE_APP_FANCY_VARIABLE': JSON.stringify(process.env.VUE_APP_FANCY_VARIABLE)
+        'process.env.VUE_APP_TOP_SECRET': JSON.stringify(process.env.VUE_APP_TOP_SECRET),
+        'process.env.VUE_APP_FANCY_VARIABLE': JSON.stringify(process.env.VUE_APP_FANCY_VARIABLE)
       })
     ]
-  },
-  chainWebpack: config => {
-    config.resolve.alias.set(
-      'vue$',
-      path.resolve(__dirname, 'node_modules/vue/dist/vue.runtime.esm.js')
-    )
   },
   lintOnSave: true,
   css: {
@@ -34,3 +34,25 @@ module.exports = {
     }
   }
 }
+
+
+// configureWebpack: {
+//   resolve: {
+//     extensions: [ '.tsx', '.ts', '.js', '.vue' ],
+//     alias: {
+//         'vue': '@vue/runtime-dom'
+//     }
+// },
+//   plugins: [
+//     new webpack.DefinePlugin({
+//         'process.env.VUE_APP_TOP_SECRET': JSON.stringify(process.env.VUE_APP_TOP_SECRET),
+//         'process.env.VUE_APP_FANCY_VARIABLE': JSON.stringify(process.env.VUE_APP_FANCY_VARIABLE)
+//     })
+//   ]
+// },
+// chainWebpack: config => {
+//   config.resolve.alias.set(
+//     'vue$',
+//     path.resolve(__dirname, 'node_modules/vue/dist/vue.runtime.esm.js')
+//   )
+// },

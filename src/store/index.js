@@ -1,13 +1,10 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { sessionService } from '../services/session';
 // import router from '../router';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+const store = createStore ({
   state: {
     user: null,
     fakeData: {
@@ -37,6 +34,7 @@ export default new Vuex.Store({
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
         commit('setUser', userCredential.user);
+        console.log("dONE SETTING THE USER")
       } catch (error) {
         console.error(error);
       }
@@ -70,3 +68,5 @@ export default new Vuex.Store({
     },    
   },
 });
+
+export default store;

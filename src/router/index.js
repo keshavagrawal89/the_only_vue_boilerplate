@@ -1,18 +1,16 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import { auth } from '../firebaseConfig';
 
 import Home from '@/views/Home.vue'
 import Auth from '@/views/Auth.vue'
 import Dashboard from '@/views/Dashboard.vue';
+import TestPage from '@/views/TestPage.vue';
 
 import NotFound from '@/components/NotFound.vue'
 
-Vue.use(VueRouter)
-
 const routes = [
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound
   }, {
@@ -30,8 +28,15 @@ const routes = [
       requiresAuth: true
     }
   }, {
+    path: '/test',
+    name: 'test',
+    component: TestPage,
+    meta: {
+      requiresAuth: true
+    }
+  }, {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: Auth,
     meta: {
       requiresAuth: false
@@ -39,23 +44,28 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
+  // auth.onAuthStateChanged(user => {
+
+  // })
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const isAuthenticated = auth.currentUser;
+  const isAuthenticated = auth.currentUser !== null;
+
+  console.log(requiresAuth, isAuthenticated, to.path);
 
   if (isAuthenticated && to.path == "/login") {
-    next("/dashboard");
+    return { name: "dashboard" }
   }
   if (requiresAuth && !isAuthenticated) {
-    next('/login');
-  } else {
-    next();
+    return { name: "login" }
   }
+
+  return true  
 });
 
 export default router
