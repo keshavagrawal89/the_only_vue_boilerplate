@@ -22,6 +22,12 @@ app.config.globalProperties.$appConfig = config;
 app.use(router)
 app.use(store)
 
+let mounted = false
+
 auth.onAuthStateChanged(() => {
-  app.mount("#app")
+  if (!mounted) {
+    console.log('this was called')
+    app.mount("#app")
+    mounted = true
+  }
 })
